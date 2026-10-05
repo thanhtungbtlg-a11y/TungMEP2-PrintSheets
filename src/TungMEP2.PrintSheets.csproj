@@ -1,0 +1,58 @@
+<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+  <PropertyGroup>
+    <AssemblyName>TungMEP2.PrintSheets</AssemblyName>
+    <RootNamespace>TungMEP2.PrintSheets</RootNamespace>
+    <TargetFramework>net48</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>12.0</LangVersion>
+    <Nullable>disable</Nullable>
+    <NoWarn>$(NoWarn);CS8632;CS0618</NoWarn>
+    <OutputPath>..\build\</OutputPath>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <Revit2024Path Condition="'$(Revit2024Path)' == ''">C:\Program Files\Autodesk\Revit 2024</Revit2024Path>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Resources\Printer_16.png" />
+    <None Remove="Resources\Printer_32.png" />
+    <EmbeddedResource Include="Resources\Printer_16.png"
+                      LogicalName="TungMEP2.PrintSheets.Resources.Printer_16.png" />
+    <EmbeddedResource Include="Resources\Printer_32.png"
+                      LogicalName="TungMEP2.PrintSheets.Resources.Printer_32.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="RevitAPI">
+      <HintPath>$(Revit2024Path)\RevitAPI.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="RevitAPIUI">
+      <HintPath>$(Revit2024Path)\RevitAPIUI.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="PdfSharpCore">
+      <HintPath>..\lib\PdfSharpCore.dll</HintPath>
+      <Private>true</Private>
+    </Reference>
+    <Reference Include="SixLabors.Fonts">
+      <HintPath>..\lib\SixLabors.Fonts.dll</HintPath>
+      <Private>true</Private>
+    </Reference>
+    <Reference Include="SixLabors.ImageSharp">
+      <HintPath>..\lib\SixLabors.ImageSharp.dll</HintPath>
+      <Private>true</Private>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib">
+      <HintPath>..\lib\ICSharpCode.SharpZipLib.dll</HintPath>
+      <Private>true</Private>
+    </Reference>
+  </ItemGroup>
+</Project>
